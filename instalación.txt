@@ -1,0 +1,25 @@
+1. Buscar el instalador python link https://www.python.org
+2. Ir a la pagina https://pip.pypa.io/en/stable/installing/
+	2.1 Ir al link https://bootstrap.pypa.io/get-pip.py 
+	2.2 Copiarlo en archivo plano en el escritorio y ponerle nombre get-pip.py
+	
+3. Abrir cmd y buscar ese archivo en el escritorio y instalarlo con 'python get-pip.py'
+4. Version 3 en adelante no es necesario instalar el virtualenv ya viene por defecto pero de igual forma utilizarlo en versiones anteriores
+	{
+		Instalar virtualenv para hacer ambientes virtuales 'pip install virtualenv'
+		4. Crear un ambiente virtual,esto pasa para cada proyecto 'virtualenv venv' o python -m venv venv
+		4.1 Para activarlo hay que irse a ./venv/Scripts/activate
+		4.2 Para desaactivarlo hay que irse a ./venv/Scripts/activate
+	}
+5. pip 
+   Es una utileria de python para manejar los requerimientos de nuestra aplicación
+	
+	5.1 pip freeze
+	Lista las extensiones instaladas en nuestro systema o entorno virtual activo
+
+	5.2 pip freeze > requeriments.txt
+	Hace que el listado de extensiones instaladas en nuestra aplicaciones se guarden en un archivo de texto para recrear 
+	facilmente nuevos entornos con todas las dependencias de nuestra aplicacion
+
+	5.3 pip install -r requeriments.txt
+	Instala todos los requerimientos que estan en el archivo 'requeriments.txt'
