@@ -1,27 +1,28 @@
 import sys
 
-clients = 'Pablo, Ricardo, '
+clients = ['Pablo', 'Ricardo']
 
 
 def create_clients(client_name):
     global clients
 
     if client_name not in clients:
-        clients += client_name
-        _add_coma()
+        clients.append(client_name)
     else:
         print('Client already is in the clien\'s list')
 
 
 def list_client():
-    print(clients)
+    for idx, client in enumerate(clients):
+        print('{}: {}' .format(idx,client))
 
 
 def update_client(client_name, update_client_name):
     global clients
 
     if client_name in clients:
-        clients = clients.replace(client_name + ',', update_client_name + ',')
+        index = clients.index(client_name)
+        clients[index] = update_client_name
     else:
         print('Client is not in clients list')
 
@@ -30,26 +31,17 @@ def delete_client(client_name):
     global clients
 
     if client_name in clients:
-        clients = clients.replace(client_name + ',', '')
+        clients.remove(client_name)
     else:
         print('Client is not in clients list')
 
 def search_client(client_name):
     # global clients
-
-    clienst_list = clients.split(',')
-
-    for client in clienst_list:
+    for client in clients:
         if client != client_name:
             continue
         else:
             return True
-
-
-def _add_coma():
-    global clients
-    clients += ','
-
 
 def _get_client_name():
     client_name = None
@@ -70,10 +62,11 @@ def _print_welcome():
     print("WELCOME TO PLATZI VENTAS")
     print('*' * 50)
     print('What would you like to do today?')
-    print('[C] Create Client')
-    print('[U] Create Client')
-    print('[D] Delete Client')
-    print('[S] Search Client')
+    print('[C]reate Client')
+    print('[L]ist Client')
+    print('[U]pdate Client')
+    print('[D]elete Client')
+    print('[S]earch Client')
 
 
 if __name__ == '__main__':
@@ -86,6 +79,8 @@ if __name__ == '__main__':
         create_clients(client_name)
         list_client()
 
+    elif command == 'L':
+        list_client()
     elif command == 'D':
         client_name = _get_client_name()
         delete_client(client_name)
